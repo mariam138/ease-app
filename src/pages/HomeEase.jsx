@@ -2,12 +2,42 @@ import React, { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import { Dropdown, DropdownItem, Button } from "flowbite-react";
 
+const onboardingQuestions = [
+  { key: "name", prompt: "🗣 What name should I call you by?" },
+  {
+    key: "language",
+    prompt: "🌍 Which language do you feel most comfortable using?",
+  },
+  {
+    key: "accessibility",
+    prompt: "♿ Do you need help with reading, hearing, or seeing?",
+  },
+  {
+    key: "household",
+    prompt:
+      "🏡 Do you live alone or with others? How many people wear clothes I should help wash?",
+  },
+  {
+    key: "schedule",
+    prompt: "📅 Can I look at your calendar to understand your usual days?",
+  },
+];
+
 function HomeEase() {
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [onboardingStep, setOnboardingStep] = useState(0);
+  const [userResponses, setUserResponses] = useState({});
+  const [inputValue, setInputValue] = useState("");
+
   const handleSelect = (model) => {
     setSelectedModel(model);
     setDisabledBtn(false);
+  };
+
+  const handleNextClick = () => {
+    setShowOnboarding(true);
   };
 
   return (
