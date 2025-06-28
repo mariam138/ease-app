@@ -231,7 +231,7 @@ function HomeEase() {
   const Dashboard = () => (
     <div className="p-4 relative">
       <Navbar fluid>
-        <span className="text-xl font-semibold">HomeEase</span>
+        <span className="text-xl font-semibold">Ease</span>
         <div className="flex gap-4">
           <Button size="sm" onClick={() => setView("profile")}>
             <UserIcon className="h-4 w-4 mr-1" /> Profile
@@ -252,11 +252,11 @@ function HomeEase() {
 
         <Card className="max-w-sm mx-auto">
           <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Start Washing
+            Start Washing <i class="fa-solid fa-jug-detergent"></i>
           </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
+          {/* <p className="font-normal text-gray-700 dark:text-gray-400">
             Placeholder for starting machine interface.
-          </p>
+          </p> */}
           <Button color="blue">Go to Machine</Button>
         </Card>
       </div>
