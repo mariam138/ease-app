@@ -16,19 +16,28 @@ import {
 } from "@heroicons/react/24/solid";
 
 const onboardingQuestions = [
-  { key: "name", prompt: "🗣 What name should I call you by?" },
+  { key: "name", prompt: "🗣 What name should I call you by?", type: "text" },
   {
     key: "language",
     prompt: "🌍 Which language do you feel most comfortable using?",
+    type: "text",
   },
   {
     key: "accessibility",
     prompt: "♿ Do you need help with reading, hearing, or seeing?",
+    type: "buttons",
+    options: ["Yes", "No"],
   },
   {
-    key: "household",
-    prompt:
-      "🏡 Do you live alone or with others? How many people wear clothes I should help wash?",
+    key: "householdStatus",
+    prompt: "🏡 Do you live alone or with others?",
+    type: "buttons",
+    options: ["Alone", "With others"],
+  },
+  {
+    key: "householdSize",
+    prompt: "👨‍👩‍👧‍👦 How many people are in your household including yourself?",
+    type: "number",
   },
 ];
 
@@ -146,26 +155,54 @@ function HomeEase() {
             <p>Just a few questions first to get you started...</p>
             <div className="max-w-md mx-auto mt-6 p-4 bg-white rounded shadow">
               <p className="text-lg mb-4">{currentQuestion.prompt}</p>
-              <TextInput
-                ref={inputRef}
-                placeholder="Your answer..."
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleInputSubmit();
-                }}
-              />
-              {showValidationAlert && (
-                <Alert color="warning" className="mt-2">
-                  ⚠️ This field cannot be empty.
-                </Alert>
+              {currentQuestion.type === "text" && (
+                <TextInput
+                  ref={inputRef}
+                  placeholder="Your answer..."
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleInputSubmit();
+                  }}
+                />
               )}
 
-              <div className="flex justify-center mt-2">
+              {currentQuestion.type === "number" && (
+                <TextInput
+                  ref={inputRef}
+                  type="number"
+                  placeholder="Enter a number"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleInputSubmit();
+                  }}
+                />
+              )}
+
+              {currentQuestion.type === "buttons" && (
+                <div className="flex justify-center gap-4 mt-4">
+                  {currentQuestion.options.map((option) => (
+                    <Button
+                      key={option}
+                      onClick={() => {
+                        setInputValue(option);
+                        handleInputSubmit(option);
+                      }}
+                    >
+                      {option}
+                    </Button>
+                  ))}
+                </div>
+              )}
+
+              {/* Show Submit button only for text/number types */}
+              {(currentQuestion.type === "text" ||
+                currentQuestion.type === "number") && (
                 <Button onClick={handleInputSubmit} className="mt-4">
                   Submit
                 </Button>
-              </div>
+              )}
             </div>
           </>
         )}
