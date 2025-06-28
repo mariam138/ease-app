@@ -74,9 +74,6 @@ function HomeEase() {
               placeholder="Your answer..."
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleInputSubmit();
-              }}
             />
             <Button onClick={handleInputSubmit} className="mt-4">
               Submit
