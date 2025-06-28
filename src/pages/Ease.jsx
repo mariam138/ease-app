@@ -1,25 +1,26 @@
-import React, { useState, useRef } from "react";
-import { Scanner } from "@yudiel/react-qr-scanner";
-import {
-  Dropdown,
-  DropdownItem,
-  Button,
-  TextInput,
-  Navbar,
-  Card,
-  Alert,
-} from "flowbite-react";
 import {
   ChatBubbleOvalLeftEllipsisIcon,
   Cog6ToothIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
+import { Scanner } from "@yudiel/react-qr-scanner";
+import {
+  Alert,
+  Button,
+  Card,
+  Dropdown,
+  DropdownItem,
+  Navbar,
+  TextInput,
+} from "flowbite-react";
+import { useRef, useState } from "react";
+import AskEase from "./AskEase";
 
 const onboardingQuestions = [
-  { key: "name", prompt: "🗣 What name should I call you by?", type: "text" },
+  { key: "name", prompt: "🗣 What’s your name? I’ll personalise your experience.", type: "text" },
   {
     key: "language",
-    prompt: "🌍 Which language do you feel most comfortable using?",
+    prompt: "🌍 Which language do you prefer using?",
     type: "text",
   },
   {
@@ -29,16 +30,21 @@ const onboardingQuestions = [
     options: ["Yes", "No"],
   },
   {
-    key: "householdStatus",
-    prompt: "🏡 Do you live alone or with others?",
-    type: "buttons",
-    options: ["Alone", "With others"],
-  },
-  {
     key: "householdSize",
-    prompt: "👨‍👩‍👧‍👦 How many people are in your household including yourself?",
+    prompt: "👨‍👩‍👧‍👦 How many people live in your home (including you)?",
     type: "number",
   },
+  {
+    key: "weeklyLoads",
+    prompt: "🧺 How many loads of laundry do you usually do in a week?",
+    type: "number"
+  },
+  {
+    key: "sharedLaundry",
+    prompt: "👨‍👩‍👧‍👦 Do other family members help with the laundry?",
+    type: "buttons",
+    options: ["Mostly me", "We share it"]
+  }
 ];
 
 function HomeEase() {
@@ -51,6 +57,7 @@ function HomeEase() {
   const [showChat, setShowChat] = useState(false);
   const [showCompleteAlert, setShowCompleteAlert] = useState(false);
   const [showValidationAlert, setShowValidationAlert] = useState(false);
+  const [startChat, setStartChat] = useState(false);
 
   const inputRef = useRef(null);
 
@@ -266,15 +273,36 @@ function HomeEase() {
         onClick={() => setShowChat(!showChat)}
         className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition"
       >
-        <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />
+      <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />
       </button>
 
-      {showChat && (
-        <div className="fixed bottom-20 right-6 w-72 p-4 bg-white rounded shadow-lg">
-          <p className="font-semibold">🤖 Chatbot</p>
-          <p className="text-sm text-gray-600">How can I assist you today?</p>
+      {showChat && !startChat && (
+        <div className="fixed bottom-20 right-6 w-72 p-4 bg-white rounded shadow-lg cursor-pointer" onClick={() => setStartChat(true)}>
+          <p className="font-semibold">🤖 Ease AI</p>
+          <p className="text-sm text-gray-600">Can I help?</p>
         </div>
-      )}
+    )}
+
+      {showChat && startChat && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="relative w-full max-w-sm">
+            <AskEase />
+            <button
+              onClick={() => setStartChat(false)}
+              className="absolute top-2 right-2 text-white bg-black bg-opacity-50 p-1 rounded-full hover:bg-opacity-75"
+            >
+              ✖
+            </button>
+            {/* Voice Feature Indicator */}
+            <button
+              className="absolute top-12 right-2 bg-blue-500 text-white p-2 rounded-full shadow hover:bg-blue-600 transition"
+              title="Voice assistant is available"
+            >
+              <i className="fas fa-volume-up text-lg" />
+            </button>
+          </div>
+        </div>
+)}
     </div>
   );
 
