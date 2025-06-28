@@ -56,7 +56,6 @@ function HomeEase() {
     } else {
       setShowCompleteAlert(true);
       console.log("User Responses:", userResponses);
-      // You can navigate, show a summary, or save responses here
     }
   };
 
@@ -92,6 +91,9 @@ function HomeEase() {
 
       {/* QR Code Scanner Container */}
       <Scanner onScan={(result) => console.log(result)} />
+      {/* Dropdown for machine models */}
+      {/* To scale up, models can be fetched from an API which has a list of products and information,
+          for example: api.skulytics.io */}
       <p className="text-sm text-gray-500 mb-4">
         or search below for your washing machine model:
       </p>
@@ -113,6 +115,7 @@ function HomeEase() {
             GE GTW840CSNWS
           </DropdownItem>
         </Dropdown>
+        {/* Click to start onboarding questions */}
         <Button disabled={disabledBtn} onClick={handleNextClick}>
           Next <i className="fa-solid fa-arrow-right"></i>
         </Button>
