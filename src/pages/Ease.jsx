@@ -25,7 +25,7 @@ const onboardingQuestions = [
   },
 ];
 
-function HomeEase() {
+function Ease() {
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
@@ -124,4 +124,4 @@ function HomeEase() {
   );
 }
 
-export default HomeEase;
+export default Ease;

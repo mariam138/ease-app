@@ -1,10 +1,10 @@
 import "./App.css";
-import HomeEase from "./pages/HomeEase";
+import Ease from "./pages/Ease";
 
 function App() {
   return (
     <>
-      <HomeEase />
+      <Ease />
     </>
   );
 }
