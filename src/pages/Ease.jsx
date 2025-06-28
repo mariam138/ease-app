@@ -121,23 +121,26 @@ function HomeEase() {
   if (view === "onboarding") {
     const currentQuestion = onboardingQuestions[onboardingStep];
     return (
-      <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded shadow">
-        <p className="text-lg mb-4">{currentQuestion.prompt}</p>
-        <TextInput
-          placeholder="Your answer..."
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") handleInputSubmit();
-          }}
-        />
+      <>
+        <p>Just a few questions first to get you started...</p>
+        <div className="max-w-md mx-auto mt-6 p-4 bg-white rounded shadow">
+          <p className="text-lg mb-4">{currentQuestion.prompt}</p>
+          <TextInput
+            placeholder="Your answer..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleInputSubmit();
+            }}
+          />
 
-        <div className="flex justify-center mt-2">
-          <Button onClick={handleInputSubmit} className="mt-4">
-            Submit
-          </Button>
+          <div className="flex justify-center mt-2">
+            <Button onClick={handleInputSubmit} className="mt-4">
+              Submit
+            </Button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
