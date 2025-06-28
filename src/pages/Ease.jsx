@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import {
   Dropdown,
@@ -43,6 +43,8 @@ function HomeEase() {
   const [showCompleteAlert, setShowCompleteAlert] = useState(false);
   const [showValidationAlert, setShowValidationAlert] = useState(false);
 
+  const inputRef = useRef(null);
+
   const handleSelect = (model) => {
     setSelectedModel(model);
     setDisabledBtn(false);
@@ -52,6 +54,8 @@ function HomeEase() {
     const currentQuestion = onboardingQuestions[onboardingStep];
     if (inputValue.trim() === "") {
       setShowValidationAlert(true);
+      // Auto-focus on field if field is empty and alert is triggered
+      inputRef.current?.focus();
       return;
     }
 
@@ -143,6 +147,7 @@ function HomeEase() {
             <div className="max-w-md mx-auto mt-6 p-4 bg-white rounded shadow">
               <p className="text-lg mb-4">{currentQuestion.prompt}</p>
               <TextInput
+                ref={inputRef}
                 placeholder="Your answer..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
