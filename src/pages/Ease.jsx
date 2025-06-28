@@ -72,10 +72,14 @@ function HomeEase() {
 
         <Scanner onScan={(result) => console.log(result)} />
         <p className="text-sm text-gray-500 mb-4 mt-2">
-          or search below for your model:
+          or search below for your machine model:
         </p>
 
-        <Dropdown label={selectedModel} dismissOnClick={true}>
+        <Dropdown
+          label={selectedModel}
+          dismissOnClick={true}
+          className="bg-neutral-100 text-black outline-neutral-150"
+        >
           {[
             "LG WM4000HWA",
             "Samsung WF45T6000AW",
@@ -94,7 +98,21 @@ function HomeEase() {
           className="mt-4"
           onClick={() => setView("onboarding")}
         >
-          Next
+          Next{" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+            />
+          </svg>
         </Button>
       </div>
     );
