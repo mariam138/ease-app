@@ -11,6 +11,7 @@
     "postinstall": "flowbite-react patch"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.11",
     "@yudiel/react-qr-scanner": "^2.3.1",
     "flowbite-react": "^0.11.8",
