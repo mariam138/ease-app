@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
-import { Dropdown, DropdownItem, Button, TextInput } from "flowbite-react";
+import {
+  Dropdown,
+  DropdownItem,
+  Button,
+  TextInput,
+  Alert,
+} from "flowbite-react";
 
 const onboardingQuestions = [
   { key: "name", prompt: "🗣 What name should I call you by?" },
@@ -47,7 +53,7 @@ function HomeEase() {
     if (onboardingStep < onboardingQuestions.length - 1) {
       setOnboardingStep(onboardingStep + 1);
     } else {
-      alert("✅ Onboarding complete!");
+      <Alert color="success">✅ Onboarding complete!</Alert>;
       console.log("User Responses:", userResponses);
       // You can navigate, show a summary, or save responses here
     }
