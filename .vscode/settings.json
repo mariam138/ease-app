@@ -5,5 +5,23 @@
   "editor.formatOnSave": true, // optional
   "editor.formatOnSaveMode": "file", // required to format on save
   "files.autoSave": "onFocusChange", // optional but recommended
-  "vs-code-prettier-eslint.prettierLast": false // set as "true" to run 'prettier' last not first
+  "vs-code-prettier-eslint.prettierLast": false, // set as "true" to run 'prettier' last not first
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "theme"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "twMerge\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
+      "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+    ]
+  ]
 }
