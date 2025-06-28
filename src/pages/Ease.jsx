@@ -5,10 +5,9 @@ import {
   DropdownItem,
   Button,
   TextInput,
-  Sidebar,
   Navbar,
-  Avatar,
   Card,
+  Alert,
 } from "flowbite-react";
 import {
   ChatBubbleOvalLeftEllipsisIcon,
@@ -60,7 +59,10 @@ function HomeEase() {
       setOnboardingStep(onboardingStep + 1);
     } else {
       setShowCompleteAlert(true);
-      setView("dashboard");
+      setTimeout(() => {
+        setShowCompleteAlert(false);
+        setView("dashboard");
+      }, 3000);
     }
   };
 
