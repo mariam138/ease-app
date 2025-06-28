@@ -131,9 +131,12 @@ function HomeEase() {
             if (e.key === "Enter") handleInputSubmit();
           }}
         />
-        <Button onClick={handleInputSubmit} className="mt-4">
-          Submit
-        </Button>
+
+        <div className="flex justify-center mt-2">
+          <Button onClick={handleInputSubmit} className="mt-4">
+            Submit
+          </Button>
+        </div>
       </div>
     );
   }
