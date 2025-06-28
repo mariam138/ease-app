@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
-import { Dropdown, DropdownItem, Button } from "flowbite-react";
+import { Dropdown, DropdownItem, Button, TextInput } from "flowbite-react";
 
 const onboardingQuestions = [
   { key: "name", prompt: "🗣 What name should I call you by?" },
@@ -40,6 +40,43 @@ function HomeEase() {
     setShowOnboarding(true);
   };
 
+  const handleInputSubmit = () => {
+    const currentQuestion = onboardingQuestions[onboardingStep];
+    setUserResponses({
+      ...userResponses,
+      [currentQuestion.key]: inputValue,
+    });
+    setInputValue("");
+
+    if (onboardingStep < onboardingQuestions.length - 1) {
+      setOnboardingStep(onboardingStep + 1);
+    } else {
+      alert("✅ Onboarding complete!");
+      console.log("User Responses:", userResponses);
+      // You can navigate, show a summary, or save responses here
+    }
+  };
+
+  if (showOnboarding) {
+    const currentQuestion = onboardingQuestions[onboardingStep];
+    return (
+      <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded shadow">
+        <p className="text-lg mb-4">{currentQuestion.prompt}</p>
+        <TextInput
+          placeholder="Your answer..."
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleInputSubmit();
+          }}
+        />
+        <Button onClick={handleInputSubmit} className="mt-4">
+          Submit
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <>
       <p className="text-xl">Scan QR Code</p>
@@ -69,7 +106,7 @@ function HomeEase() {
             GE GTW840CSNWS
           </DropdownItem>
         </Dropdown>
-        <Button disabled={disabledBtn}>
+        <Button disabled={disabledBtn} onClick={handleNextClick}>
           Next <i className="fa-solid fa-arrow-right"></i>
         </Button>
       </div>
