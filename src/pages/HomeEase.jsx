@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import { Dropdown, DropdownItem, Button } from "flowbite-react";
 
