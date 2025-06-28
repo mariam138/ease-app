@@ -13,11 +13,12 @@ function HomeEase() {
       <Scanner onScan={(result) => console.log(result)} />
       <p className="text-sm text-gray-500">or search below for your model:</p>
       <div className="flex justify-center">
-        <Dropdown label="Dropdown button" dismissOnClick={false}>
-          <DropdownItem>Dashboard</DropdownItem>
-          <DropdownItem>Settings</DropdownItem>
-          <DropdownItem>Earnings</DropdownItem>
-          <DropdownItem>Sign out</DropdownItem>
+        <Dropdown label="Select your model" dismissOnClick={false}>
+          <DropdownItem>LG WM4000HWA</DropdownItem>
+          <DropdownItem>Samsung WF45T6000AW</DropdownItem>
+          <DropdownItem>Whirlpool WTW5000DW</DropdownItem>
+          <DropdownItem>Maytag MVWC565FW</DropdownItem>
+          <DropdownItem>GE GTW840CSNWS</DropdownItem>
         </Dropdown>
       </div>
     </>
