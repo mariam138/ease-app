@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
-import { Dropdown, DropdownItem } from "flowbite-react";
+import { Dropdown, DropdownItem, Button } from "flowbite-react";
 
 function HomeEase() {
   const [selectedModel, setSelectedModel] = useState("Select your model");
@@ -16,8 +16,10 @@ function HomeEase() {
 
       {/* QR Code Scanner Container */}
       <Scanner onScan={(result) => console.log(result)} />
-      <p className="text-sm text-gray-500">or search below for your model:</p>
-      <div className="flex justify-center">
+      <p className="text-sm text-gray-500 mb-4">
+        or search below for your model:
+      </p>
+      <div className="flex flex-col gap-2 items-center">
         <Dropdown label={selectedModel} dismissOnClick={true}>
           <DropdownItem onClick={() => handleSelect("LG WM4000HWA")}>
             LG WM4000HWA
@@ -35,6 +37,9 @@ function HomeEase() {
             GE GTW840CSNWS
           </DropdownItem>
         </Dropdown>
+        <Button>
+          Next <i className="fa-solid fa-arrow-right"></i>
+        </Button>
       </div>
     </>
   );
