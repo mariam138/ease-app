@@ -3,7 +3,7 @@ import React from "react";
 function HomeEase() {
   return (
     <>
-      <h1>Scan QR Code</h1>
+      <p className="text-xl">Scan QR Code</p>
     </>
   );
 }

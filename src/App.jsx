@@ -1,7 +1,12 @@
 import "./App.css";
+import HomeEase from "./pages/HomeEase";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <HomeEase />
+    </>
+  );
 }
 
 export default App;
