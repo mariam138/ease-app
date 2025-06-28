@@ -4,8 +4,10 @@ import { Dropdown, DropdownItem, Button } from "flowbite-react";
 
 function HomeEase() {
   const [selectedModel, setSelectedModel] = useState("Select your model");
+  const [disabledBtn, setDisabledBtn] = useState(true);
   const handleSelect = (model) => {
     setSelectedModel(model);
+    setDisabledBtn(false);
   };
 
   return (
@@ -37,7 +39,7 @@ function HomeEase() {
             GE GTW840CSNWS
           </DropdownItem>
         </Dropdown>
-        <Button>
+        <Button disabled={disabledBtn}>
           Next <i className="fa-solid fa-arrow-right"></i>
         </Button>
       </div>
