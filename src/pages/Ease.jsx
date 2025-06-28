@@ -41,6 +41,7 @@ function HomeEase() {
   const [inputValue, setInputValue] = useState("");
   const [showChat, setShowChat] = useState(false);
   const [showCompleteAlert, setShowCompleteAlert] = useState(false);
+  const [showValidationAlert, setShowValidationAlert] = useState(false);
 
   const handleSelect = (model) => {
     setSelectedModel(model);
@@ -49,10 +50,18 @@ function HomeEase() {
 
   const handleInputSubmit = () => {
     const currentQuestion = onboardingQuestions[onboardingStep];
+    if (inputValue.trim() === "") {
+      setShowValidationAlert(true);
+      return;
+    }
+
+    setShowValidationAlert(false);
+
     setUserResponses({
       ...userResponses,
       [currentQuestion.key]: inputValue,
     });
+
     setInputValue("");
 
     if (onboardingStep < onboardingQuestions.length - 1) {
@@ -141,6 +150,11 @@ function HomeEase() {
                   if (e.key === "Enter") handleInputSubmit();
                 }}
               />
+              {showValidationAlert && (
+                <Alert color="warning" className="mt-2">
+                  ⚠️ This field cannot be empty.
+                </Alert>
+              )}
 
               <div className="flex justify-center mt-2">
                 <Button onClick={handleInputSubmit} className="mt-4">
