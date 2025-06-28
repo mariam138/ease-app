@@ -156,28 +156,42 @@ function HomeEase() {
             <div className="max-w-md mx-auto mt-6 p-4 bg-white rounded shadow">
               <p className="text-lg mb-4">{currentQuestion.prompt}</p>
               {currentQuestion.type === "text" && (
-                <TextInput
-                  ref={inputRef}
-                  placeholder="Your answer..."
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") handleInputSubmit();
-                  }}
-                />
+                <>
+                  <TextInput
+                    ref={inputRef}
+                    placeholder="Your answer..."
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") handleInputSubmit();
+                    }}
+                  />
+                  {showValidationAlert && (
+                    <Alert color="warning" className="mt-2">
+                      ⚠️ This field cannot be empty.
+                    </Alert>
+                  )}
+                </>
               )}
 
               {currentQuestion.type === "number" && (
-                <TextInput
-                  ref={inputRef}
-                  type="number"
-                  placeholder="Enter a number"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") handleInputSubmit();
-                  }}
-                />
+                <>
+                  <TextInput
+                    ref={inputRef}
+                    type="number"
+                    placeholder="Enter a number"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") handleInputSubmit();
+                    }}
+                  />
+                  {showValidationAlert && (
+                    <Alert color="warning" className="mt-2">
+                      ⚠️ This field cannot be empty.
+                    </Alert>
+                  )}
+                </>
               )}
 
               {currentQuestion.type === "buttons" && (
@@ -199,9 +213,13 @@ function HomeEase() {
               {/* Show Submit button only for text/number types */}
               {(currentQuestion.type === "text" ||
                 currentQuestion.type === "number") && (
-                <Button onClick={handleInputSubmit} className="mt-4">
-                  Submit
-                </Button>
+                <>
+                  <div className="flex justify-center">
+                    <Button onClick={handleInputSubmit} className="mt-4">
+                      Submit
+                    </Button>
+                  </div>
+                </>
               )}
             </div>
           </>
