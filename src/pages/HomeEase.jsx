@@ -17,10 +17,6 @@ const onboardingQuestions = [
     prompt:
       "🏡 Do you live alone or with others? How many people wear clothes I should help wash?",
   },
-  {
-    key: "schedule",
-    prompt: "📅 Can I look at your calendar to understand your usual days?",
-  },
 ];
 
 function HomeEase() {
