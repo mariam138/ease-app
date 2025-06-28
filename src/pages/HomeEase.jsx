@@ -18,7 +18,7 @@ function HomeEase() {
       <Scanner onScan={(result) => console.log(result)} />
       <p className="text-sm text-gray-500">or search below for your model:</p>
       <div className="flex justify-center">
-        <Dropdown label={selectedModel} dismissOnClick={false}>
+        <Dropdown label={selectedModel} dismissOnClick={true}>
           <DropdownItem onClick={() => handleSelect("LG WM4000HWA")}>
             LG WM4000HWA
           </DropdownItem>
