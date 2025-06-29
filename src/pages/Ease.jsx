@@ -257,18 +257,6 @@ function HomeEase() {
 
   const Dashboard = () => (
     <div className="p-4 pb-24 relative">
-      <Navbar fluid>
-        <span className="text-xl font-semibold">Ease</span>
-        <div className="flex gap-4">
-          <Button size="sm" onClick={() => setView("profile")}>
-            <UserIcon className="h-4 w-4 mr-1" /> Profile
-          </Button>
-          <Button size="sm" color="gray">
-            <Cog6ToothIcon className="h-4 w-4 mr-1" /> Settings
-          </Button>
-        </div>
-      </Navbar>
-
       <div className="text-center mt-10">
         <h1 className="text-2xl font-bold">
           Hello {userResponses.name || "User"} 👋
