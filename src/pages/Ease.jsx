@@ -52,7 +52,7 @@ const onboardingQuestions = [
 ];
 
 function HomeEase() {
-  const [view, setView] = useState("dashboard"); // 'home' | 'onboarding' | 'dashboard' | 'profile'
+  const [view, setView] = useState("dashboard"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
   const [onboardingStep, setOnboardingStep] = useState(0);
@@ -265,7 +265,10 @@ function HomeEase() {
 
         <div className="grid grid-cols-2 gap-4 mt-6 max-w-sm mx-auto">
           {/* Appliance 1 */}
-          <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
+          <button
+            onClick={() => setView("machine")}
+            className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition"
+          >
             <img
               src="src/assets/washing-machine.png"
               alt="Washing Machine"
