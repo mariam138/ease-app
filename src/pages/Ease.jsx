@@ -288,6 +288,7 @@ function HomeEase() {
         </Card>
       </div>
 
+      {/* Bottom navigation */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50">
         <div className="flex justify-around items-center py-2">
           <button
@@ -303,13 +304,6 @@ function HomeEase() {
           >
             <UserIcon className="h-5 w-5" />
             <span>Profile</span>
-          </button>
-          <button
-            onClick={() => setShowChat((prev) => !prev)}
-            className="flex flex-col items-center text-sm"
-          >
-            <ChatBubbleOvalLeftEllipsisIcon className="h-5 w-5" />
-            <span>Chat</span>
           </button>
         </div>
       </div>
