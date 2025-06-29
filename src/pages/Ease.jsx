@@ -216,7 +216,6 @@ function HomeEase() {
                     <Button
                       key={option}
                       onClick={() => {
-                        setInputValue(option);
                         handleInputSubmit(option);
                       }}
                     >
