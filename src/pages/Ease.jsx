@@ -256,7 +256,9 @@ function HomeEase() {
     <div className="p-4 pb-24 relative">
       <div className="text-center mt-10">
         <h1 className="text-2xl font-bold">
-          Hello {userResponses.name || "User"} 👋
+          Hello{" "}
+          {typeof userResponses.name === "string" ? userResponses.name : "User"}{" "}
+          👋
         </h1>
         <p className="text-gray-600 mt-1 mb-6">
           You’re ready to use your washing machine!
