@@ -2,6 +2,7 @@ import {
   ChatBubbleOvalLeftEllipsisIcon,
   Cog6ToothIcon,
   UserIcon,
+  HomeIcon,
 } from "@heroicons/react/24/solid";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import {
@@ -17,7 +18,11 @@ import { useRef, useState } from "react";
 import AskEase from "./AskEase";
 
 const onboardingQuestions = [
-  { key: "name", prompt: "🗣 What’s your name? I’ll personalise your experience.", type: "text" },
+  {
+    key: "name",
+    prompt: "🗣 What’s your name? I’ll personalise your experience.",
+    type: "text",
+  },
   {
     key: "language",
     prompt: "🌍 Which language do you prefer using?",
@@ -38,14 +43,14 @@ const onboardingQuestions = [
   {
     key: "weeklyLoads",
     prompt: "🧺 How many loads of laundry do you usually do in a week?",
-    type: "number"
+    type: "number",
   },
   {
     key: "sharedLaundry",
     prompt: "👨‍👩‍👧‍👦 Do other family members help with the laundry?",
     type: "buttons",
-    options: ["Mostly me", "We share it"]
-  }
+    options: ["Mostly me", "We share it"],
+  },
 ];
 
 function HomeEase() {
@@ -251,7 +256,7 @@ function HomeEase() {
   }
 
   const Dashboard = () => (
-    <div className="p-4 relative">
+    <div className="p-4 pb-24 relative">
       <Navbar fluid>
         <span className="text-xl font-semibold">Ease</span>
         <div className="flex gap-4">
@@ -283,20 +288,49 @@ function HomeEase() {
         </Card>
       </div>
 
+      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50">
+        <div className="flex justify-around items-center py-2">
+          <button
+            onClick={() => setView("dashboard")}
+            className="flex flex-col items-center text-sm"
+          >
+            <HomeIcon className="h-5 w-5" />
+            <span>Home</span>
+          </button>
+          <button
+            onClick={() => setView("profile")}
+            className="flex flex-col items-center text-sm"
+          >
+            <UserIcon className="h-5 w-5" />
+            <span>Profile</span>
+          </button>
+          <button
+            onClick={() => setShowChat((prev) => !prev)}
+            className="flex flex-col items-center text-sm"
+          >
+            <ChatBubbleOvalLeftEllipsisIcon className="h-5 w-5" />
+            <span>Chat</span>
+          </button>
+        </div>
+      </div>
+
       {/* Chatbot Toggle Button */}
       <button
         onClick={() => setShowChat(!showChat)}
-        className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition"
+        className="fixed bottom-20 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition z-[60]"
       >
-      <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />
+        <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />
       </button>
 
       {showChat && !startChat && (
-        <div className="fixed bottom-20 right-6 w-72 p-4 bg-white rounded shadow-lg cursor-pointer" onClick={() => setStartChat(true)}>
+        <div
+          className="fixed bottom-20 right-6 w-72 p-4 bg-white rounded shadow-lg cursor-pointer"
+          onClick={() => setStartChat(true)}
+        >
           <p className="font-semibold">🤖 Ease AI</p>
           <p className="text-sm text-gray-600">Can I help?</p>
         </div>
-    )}
+      )}
 
       {showChat && startChat && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
@@ -317,7 +351,7 @@ function HomeEase() {
             </button>
           </div>
         </div>
-)}
+      )}
     </div>
   );
 
