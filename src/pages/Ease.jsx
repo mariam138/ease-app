@@ -38,6 +38,7 @@ const onboardingQuestions = [
     key: "householdSize",
     prompt: "👨‍👩‍👧‍👦 How many people are in your household including yourself?",
     type: "number",
+    dependsOn: { key: "householdStatus", value: "With others" },
   },
 ];
 
@@ -59,26 +60,41 @@ function HomeEase() {
     setDisabledBtn(false);
   };
 
-  const handleInputSubmit = () => {
+  const handleInputSubmit = (overrideValue = null) => {
     const currentQuestion = onboardingQuestions[onboardingStep];
-    if (inputValue.trim() === "") {
+    const valueToStore = overrideValue ?? inputValue.trim();
+
+    if (
+      (currentQuestion.type === "text" || currentQuestion.type === "number") &&
+      valueToStore === ""
+    ) {
       setShowValidationAlert(true);
-      // Auto-focus on field if field is empty and alert is triggered
       inputRef.current?.focus();
       return;
     }
 
     setShowValidationAlert(false);
 
-    setUserResponses({
+    const updatedResponses = {
       ...userResponses,
-      [currentQuestion.key]: inputValue,
-    });
-
+      [currentQuestion.key]: valueToStore,
+    };
+    setUserResponses(updatedResponses);
     setInputValue("");
 
-    if (onboardingStep < onboardingQuestions.length - 1) {
-      setOnboardingStep(onboardingStep + 1);
+    // Find next step, skipping questions that don't match `dependsOn`
+    let nextStep = onboardingStep + 1;
+    while (
+      nextStep < onboardingQuestions.length &&
+      onboardingQuestions[nextStep].dependsOn &&
+      updatedResponses[onboardingQuestions[nextStep].dependsOn.key] !==
+        onboardingQuestions[nextStep].dependsOn.value
+    ) {
+      nextStep++;
+    }
+
+    if (nextStep < onboardingQuestions.length) {
+      setOnboardingStep(nextStep);
     } else {
       setShowCompleteAlert(true);
       setTimeout(() => {
