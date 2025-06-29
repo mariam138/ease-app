@@ -263,17 +263,47 @@ function HomeEase() {
           You’re ready to use your washing machine!
         </p>
 
-        <Card className="max-w-sm mx-auto">
-          <p className="tracking-tight text-gray-900 dark:text-white">
-            Washing Machine
-          </p>
-          {/* Small icon below title */}
-          <img
-            src="src/assets/washing-machine.png" // adjust the path as needed
-            alt="Washing Machine Icon"
-            className="w-10 h-10 mx-auto mt-2"
-          />
-        </Card>
+        <div className="grid grid-cols-2 gap-4 mt-6 max-w-sm mx-auto">
+          {/* Appliance 1 */}
+          <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
+            <img
+              src="src/assets/washing-machine.png"
+              alt="Washing Machine"
+              className="w-10 h-10 mb-2"
+            />
+            <span className="text-sm font-medium">Washer</span>
+          </button>
+
+          {/* Appliance 2 */}
+          <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
+            <img
+              src="src/assets/washing-machine.png"
+              alt="Dryer"
+              className="w-10 h-10 mb-2"
+            />
+            <span className="text-sm font-medium">Dryer</span>
+          </button>
+
+          {/* Appliance 3 */}
+          <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
+            <img
+              src="src/assets/washing-machine.png"
+              alt="Iron"
+              className="w-10 h-10 mb-2"
+            />
+            <span className="text-sm font-medium">Iron</span>
+          </button>
+
+          {/* Appliance 4 */}
+          <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
+            <img
+              src="src/assets/washing-machine.png"
+              alt="Steamer"
+              className="w-10 h-10 mb-2"
+            />
+            <span className="text-sm font-medium">Steamer</span>
+          </button>
+        </div>
       </div>
 
       {/* Bottom navigation */}
