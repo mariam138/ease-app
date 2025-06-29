@@ -412,7 +412,66 @@ function HomeEase() {
     </div>
   );
 
-  return view === "dashboard" ? <Dashboard /> : <Profile />;
+  const MachineView = () => (
+    <div className="relative min-h-screen bg-white p-4">
+      {/* Back Button */}
+      <Button
+        color="gray"
+        className="absolute top-4 left-4 z-10"
+        onClick={() => setView("dashboard")}
+      >
+        ← Back
+      </Button>
+
+      {/* Padding top added to push content below the back button */}
+      <div className="pt-16">
+        <h1 className="text-2xl font-bold text-center mb-6">What’s Next?</h1>
+
+        <div className="max-w-md mx-auto space-y-4">
+          <div className="p-4 bg-gray-100 rounded shadow">
+            🧺 Wash school uniforms today — pre-treat stains first
+          </div>
+          <div className="p-4 bg-gray-100 rounded shadow">
+            🛏 Bedding due this weekend — check available space in laundry
+            basket
+          </div>
+        </div>
+      </div>
+
+      {/* Chatbot Toggle Button */}
+      <button
+        onClick={() => {
+          setShowChat(true);
+          setStartChat(true);
+        }}
+        className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition"
+      >
+        <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />
+      </button>
+
+      {showChat && startChat && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="relative w-full max-w-sm">
+            <AskEase />
+            <button
+              onClick={() => setStartChat(false)}
+              className="absolute top-2 right-2 text-white bg-black bg-opacity-50 p-1 rounded-full hover:bg-opacity-75"
+            >
+              ✖
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  return view === "dashboard" ? (
+    <Dashboard />
+  ) : view === "machine" ? (
+    <MachineView />
+  ) : (
+    <Profile />
+  );
 }
 
 export default HomeEase;
