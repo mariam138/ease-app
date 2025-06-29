@@ -1,6 +1,5 @@
 import {
   ChatBubbleOvalLeftEllipsisIcon,
-  Cog6ToothIcon,
   UserIcon,
   HomeIcon,
 } from "@heroicons/react/24/solid";
@@ -11,7 +10,6 @@ import {
   Card,
   Dropdown,
   DropdownItem,
-  Navbar,
   TextInput,
 } from "flowbite-react";
 import { useRef, useState } from "react";
@@ -54,7 +52,7 @@ const onboardingQuestions = [
 ];
 
 function HomeEase() {
-  const [view, setView] = useState("home"); // 'home' | 'onboarding' | 'dashboard' | 'profile'
+  const [view, setView] = useState("dashboard"); // 'home' | 'onboarding' | 'dashboard' | 'profile'
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
   const [onboardingStep, setOnboardingStep] = useState(0);
@@ -266,13 +264,15 @@ function HomeEase() {
         </p>
 
         <Card className="max-w-sm mx-auto">
-          <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Start Washing <i class="fa-solid fa-jug-detergent"></i>
-          </h5>
-          {/* <p className="font-normal text-gray-700 dark:text-gray-400">
-            Placeholder for starting machine interface.
-          </p> */}
-          <Button color="blue">Go to Machine</Button>
+          <p className="tracking-tight text-gray-900 dark:text-white">
+            Washing Machine
+          </p>
+          {/* Small icon below title */}
+          <img
+            src="src/assets/washing-machine.png" // adjust the path as needed
+            alt="Washing Machine Icon"
+            className="w-10 h-10 mx-auto mt-2"
+          />
         </Card>
       </div>
 
