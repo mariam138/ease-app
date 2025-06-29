@@ -7,7 +7,6 @@ import { Scanner } from "@yudiel/react-qr-scanner";
 import {
   Alert,
   Button,
-  Card,
   Dropdown,
   DropdownItem,
   TextInput,
