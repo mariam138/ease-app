@@ -51,7 +51,7 @@ const onboardingQuestions = [
 ];
 
 function HomeEase() {
-  const [view, setView] = useState("dashboard"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
+  const [view, setView] = useState("home"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
   const [onboardingStep, setOnboardingStep] = useState(0);
