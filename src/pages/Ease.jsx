@@ -271,7 +271,7 @@ function HomeEase() {
             className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition"
           >
             <img
-              src="src/assets/washing-machine.png"
+              src="/assets/washing-machine.png"
               alt="Washing Machine"
               className="w-10 h-10 mb-2"
             />
@@ -281,7 +281,7 @@ function HomeEase() {
           {/* Appliance 2 */}
           <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
             <img
-              src="src/assets/washing-machine.png"
+              src="/assets/washing-machine.png"
               alt="Dryer"
               className="w-10 h-10 mb-2"
             />
@@ -291,7 +291,7 @@ function HomeEase() {
           {/* Appliance 3 */}
           <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
             <img
-              src="src/assets/washing-machine.png"
+              src="/assets/washing-machine.png"
               alt="Iron"
               className="w-10 h-10 mb-2"
             />
@@ -301,7 +301,7 @@ function HomeEase() {
           {/* Appliance 4 */}
           <button className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow hover:bg-blue-100 transition">
             <img
-              src="src/assets/washing-machine.png"
+              src="/assets/washing-machine.png"
               alt="Steamer"
               className="w-10 h-10 mb-2"
             />
