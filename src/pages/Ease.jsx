@@ -52,7 +52,7 @@ const onboardingQuestions = [
 ];
 
 function HomeEase() {
-  const [view, setView] = useState("home"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
+  const [view, setView] = useState("profile"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
   const [onboardingStep, setOnboardingStep] = useState(0);
@@ -414,34 +414,6 @@ function HomeEase() {
         </ul>
       </div> */}
       <Card className="max-w-sm">
-        <div className="flex justify-end px-4 pt-4">
-          <Dropdown inline label="">
-            <DropdownItem>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Edit
-              </a>
-            </DropdownItem>
-            <DropdownItem>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Export Data
-              </a>
-            </DropdownItem>
-            <DropdownItem>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Delete
-              </a>
-            </DropdownItem>
-          </Dropdown>
-        </div>
         <div className="flex flex-col items-center pb-10">
           <img
             alt="Bonnie image"
@@ -451,11 +423,14 @@ function HomeEase() {
             className="mb-3 rounded-full shadow-lg"
           />
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-            Bonnie Green
+            {userResponses.name}
           </h5>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            Visual Designer
-          </span>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Language: {userResponses.language}
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Washing Machine Model: {userResponses.selectedModel}
+          </p>
           <div className="mt-4 flex space-x-3 lg:mt-6">
             <a
               href="#"
