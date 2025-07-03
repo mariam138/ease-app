@@ -114,6 +114,7 @@ function HomeEase() {
     }
   };
 
+  // Initial scanner view when app loads
   if (view === "home") {
     return (
       <div className="flex flex-col items-center p-6">
@@ -170,6 +171,7 @@ function HomeEase() {
     );
   }
 
+  // Onboarding questions that appear after choosing machine model
   if (view === "onboarding") {
     const currentQuestion = onboardingQuestions[onboardingStep];
     return (
@@ -253,6 +255,7 @@ function HomeEase() {
     );
   }
 
+  // Dashboard view
   const Dashboard = () => (
     <div className="p-4 pb-24 relative">
       <div className="text-center mt-10">
@@ -388,6 +391,7 @@ function HomeEase() {
     </div>
   );
 
+  // Profile view
   const Profile = () => (
     <>
       {/* <div className="p-4">
