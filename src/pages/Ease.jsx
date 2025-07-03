@@ -398,7 +398,7 @@ function HomeEase() {
         <Button color="gray" onClick={() => setView("dashboard")}>
           ← Back to Dashboard
         </Button>
-        <h2 className="text-2xl font-bold mt-4 mb-2">Profile</h2>
+        
         <ul className="text-gray-700 list-disc ml-6 space-y-1">
           <li>
             <strong>Name:</strong> {userResponses.name}
@@ -418,7 +418,8 @@ function HomeEase() {
         </ul>
       </div> */}
       <Card className="max-w-sm">
-        <div className="flex flex-col items-center pb-10">
+        <h2 className="text-2xl font-bold mt-4 mb-2">Profile</h2>
+        <div className="flex flex-col items-center pb-4">
           <img
             alt="Bonnie image"
             height="96"
