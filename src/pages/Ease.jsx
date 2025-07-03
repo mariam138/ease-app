@@ -32,12 +32,6 @@ const onboardingQuestions = [
     type: "buttons",
     options: ["Yes", "No"],
   },
-  // {
-  //   key: "householdSize",
-  //   prompt: "👨‍👩‍👧‍👦 How many people live in your home (including you)?",
-  //   type: "number",
-  //   dependsOn: { key: "householdStatus", value: "With others" },
-  // },
   {
     key: "weeklyLoads",
     prompt: "🧺 How many loads of laundry do you usually do in a week?",
@@ -92,17 +86,9 @@ function HomeEase() {
     setUserResponses(updatedResponses);
     setInputValue("");
 
-    // Find next step, skipping questions that don't match `dependsOn`
     let nextStep = onboardingStep + 1;
-    while (
-      nextStep < onboardingQuestions.length &&
-      onboardingQuestions[nextStep].dependsOn &&
-      updatedResponses[onboardingQuestions[nextStep].dependsOn.key] !==
-        onboardingQuestions[nextStep].dependsOn.value
-    ) {
-      nextStep++;
-    }
 
+    // Loop through onboarding questions
     if (nextStep < onboardingQuestions.length) {
       setOnboardingStep(nextStep);
     } else {
