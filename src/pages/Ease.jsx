@@ -395,9 +395,7 @@ function HomeEase() {
   const Profile = () => (
     <>
       {/* <div className="p-4">
-        <Button color="gray" onClick={() => setView("dashboard")}>
-          ← Back to Dashboard
-        </Button>
+        
         
         <ul className="text-gray-700 list-disc ml-6 space-y-1">
           <li>
@@ -417,6 +415,14 @@ function HomeEase() {
           </li>
         </ul>
       </div> */}
+      <Button
+        size="sm"
+        color="light"
+        className="p-2 mb-2"
+        onClick={() => setView("dashboard")}
+      >
+        ← Back
+      </Button>
       <Card className="max-w-sm">
         <h2 className="text-2xl font-bold mt-4 mb-2">Profile</h2>
         <div className="flex flex-col items-center pb-4">
