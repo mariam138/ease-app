@@ -410,7 +410,7 @@ function HomeEase() {
             Accessibility needs? {userResponses.accessibility}
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Washing Machine Model: {userResponses.selectedModel}
+            Washing Machine Model: {selectedModel}
           </p>
           <div className="mt-4 flex space-x-3 lg:mt-6">
             <a
