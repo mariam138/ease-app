@@ -418,7 +418,7 @@ function HomeEase() {
           <img
             alt="Bonnie image"
             height="96"
-            src="/images/people/profile-picture-3.jpg"
+            src="/assets/generic_profile_img.png"
             width="96"
             className="mb-3 rounded-full shadow-lg"
           />
