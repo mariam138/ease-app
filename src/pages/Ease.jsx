@@ -52,7 +52,7 @@ const onboardingQuestions = [
 ];
 
 function HomeEase() {
-  const [view, setView] = useState("profile"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
+  const [view, setView] = useState("home"); // 'home' | 'onboarding' | 'dashboard' | 'profile' | 'machine'
   const [selectedModel, setSelectedModel] = useState("Select your model");
   const [disabledBtn, setDisabledBtn] = useState(true);
   const [onboardingStep, setOnboardingStep] = useState(0);
@@ -394,27 +394,6 @@ function HomeEase() {
   // Profile view
   const Profile = () => (
     <>
-      {/* <div className="p-4">
-        
-        
-        <ul className="text-gray-700 list-disc ml-6 space-y-1">
-          <li>
-            <strong>Name:</strong> {userResponses.name}
-          </li>
-          <li>
-            <strong>Language:</strong> {userResponses.language}
-          </li>
-          <li>
-            <strong>Accessibility:</strong> {userResponses.accessibility}
-          </li>
-          <li>
-            <strong>Household:</strong> {userResponses.household}
-          </li>
-          <li>
-            <strong>Model:</strong> {selectedModel}
-          </li>
-        </ul>
-      </div> */}
       <Button
         size="sm"
         color="light"
@@ -434,7 +413,9 @@ function HomeEase() {
             className="mb-3 rounded-full shadow-lg"
           />
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-            {userResponses.name}
+            {typeof userResponses.name === "string"
+              ? userResponses.name
+              : "User"}{" "}
           </h5>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             Language: {userResponses.language}
