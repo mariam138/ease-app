@@ -388,29 +388,50 @@ function HomeEase() {
   );
 
   const Profile = () => (
-    <div className="p-4">
-      <Button color="gray" onClick={() => setView("dashboard")}>
-        ← Back to Dashboard
-      </Button>
-      <h2 className="text-2xl font-bold mt-4 mb-2">Profile Info</h2>
-      <ul className="text-gray-700 list-disc ml-6 space-y-1">
-        <li>
-          <strong>Name:</strong> {userResponses.name}
-        </li>
-        <li>
-          <strong>Language:</strong> {userResponses.language}
-        </li>
-        <li>
-          <strong>Accessibility:</strong> {userResponses.accessibility}
-        </li>
-        <li>
-          <strong>Household:</strong> {userResponses.household}
-        </li>
-        <li>
-          <strong>Model:</strong> {selectedModel}
-        </li>
-      </ul>
-    </div>
+    <>
+      <div className="p-4">
+        <Button color="gray" onClick={() => setView("dashboard")}>
+          ← Back to Dashboard
+        </Button>
+        <h2 className="text-2xl font-bold mt-4 mb-2">Profile Info</h2>
+        <ul className="text-gray-700 list-disc ml-6 space-y-1">
+          <li>
+            <strong>Name:</strong> {userResponses.name}
+          </li>
+          <li>
+            <strong>Language:</strong> {userResponses.language}
+          </li>
+          <li>
+            <strong>Accessibility:</strong> {userResponses.accessibility}
+          </li>
+          <li>
+            <strong>Household:</strong> {userResponses.household}
+          </li>
+          <li>
+            <strong>Model:</strong> {selectedModel}
+          </li>
+        </ul>
+      </div>
+      {/* Bottom navigation */}
+      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50">
+        <div className="flex justify-around items-center py-2">
+          <button
+            onClick={() => setView("dashboard")}
+            className="flex flex-col items-center text-sm"
+          >
+            <HomeIcon className="h-5 w-5" />
+            <span>Home</span>
+          </button>
+          <button
+            onClick={() => setView("profile")}
+            className="flex flex-col items-center text-sm"
+          >
+            <UserIcon className="h-5 w-5" />
+            <span>Profile</span>
+          </button>
+        </div>
+      </div>
+    </>
   );
 
   const MachineView = () => (
