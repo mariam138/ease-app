@@ -32,12 +32,12 @@ const onboardingQuestions = [
     type: "buttons",
     options: ["Yes", "No"],
   },
-  {
-    key: "householdSize",
-    prompt: "👨‍👩‍👧‍👦 How many people live in your home (including you)?",
-    type: "number",
-    dependsOn: { key: "householdStatus", value: "With others" },
-  },
+  // {
+  //   key: "householdSize",
+  //   prompt: "👨‍👩‍👧‍👦 How many people live in your home (including you)?",
+  //   type: "number",
+  //   dependsOn: { key: "householdStatus", value: "With others" },
+  // },
   {
     key: "weeklyLoads",
     prompt: "🧺 How many loads of laundry do you usually do in a week?",
